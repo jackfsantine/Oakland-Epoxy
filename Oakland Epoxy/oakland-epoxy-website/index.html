@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oakland Epoxy Co. — durable, great-looking concrete floor coatings for garages, basements, and commercial spaces.">
+  <title>Oakland Epoxy Co. | Concrete Floor Coatings</title>
+  <style>
+    :root {
+      --blue: #168bd2;
+      --blue-bright: #1598ed;
+      --black: #07090b;
+      --panel: #101419;
+      --muted: #aeb8c2;
+      --white: #f6f8fa;
+      --line: #252c34;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7,9,11,.98) 0%, rgba(7,9,11,.88) 48%, rgba(7,9,11,.42) 100%),
+        url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: auto 0 0;
+      height: 5px; background: var(--blue); z-index: -1;
+    }
+    .hero-inner { padding: 70px 0 90px; max-width: 720px; }
+    .logo { display: block; width: min(340px, 80%); height: auto; margin: 0 0 36px; }
+    .eyebrow {
+      color: var(--blue-bright); font-size: .78rem; font-weight: 800;
+      letter-spacing: .2em; text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2.6rem, 6vw, 5.1rem); line-height: 1.02; letter-spacing: -.045em; margin: 12px 0 22px; }
+    h1 span { color: var(--blue-bright); }
+    .hero p { max-width: 580px; color: #d1d7dd; font-size: clamp(1rem, 2vw, 1.2rem); margin: 0 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 49px;
+      padding: 12px 22px; border-radius: 4px; text-decoration: none; font-weight: 800;
+      border: 1px solid var(--blue); transition: transform .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--blue); color: white; }
+    .btn.secondary { background: rgba(0,0,0,.35); color: white; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 650px; margin-bottom: 32px; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.03em; margin: 8px 0 14px; }
+    .section-head p, .muted { color: var(--muted); }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 7px; overflow: hidden;
+    }
+    .service img { display: block; width: 100%; height: 210px; object-fit: cover; }
+    .service-content { padding: 22px; }
+    .service h3 { margin: 0 0 8px; font-size: 1.2rem; }
+    .service p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .why { background: #0c1014; border-top: 1px solid #171d24; border-bottom: 1px solid #171d24; }
+    .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .benefit { padding: 22px 0; }
+    .benefit-mark { color: var(--blue-bright); font-size: 1.5rem; font-weight: 900; }
+    .benefit h3 { margin: 7px 0; }
+    .benefit p { margin: 0; color: var(--muted); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: start; }
+    .contact-copy p { color: var(--muted); }
+    .contact-card { background: var(--panel); border: 1px solid var(--line); border-radius: 7px; padding: 26px; }
+    form { display: grid; gap: 15px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; font-size: .85rem; font-weight: 700; margin-bottom: 6px; color: #e6ebef; }
+    input, select, textarea {
+      width: 100%; color: var(--white); background: #080b0e; border: 1px solid #303943;
+      border-radius: 4px; padding: 12px 13px; font: inherit; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue-bright); box-shadow: 0 0 0 2px #168bd229; }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-note { color: var(--muted); font-size: .8rem; margin: 0; }
+    .form-status { display: none; padding: 12px; border-left: 3px solid var(--blue); background: #0a1a25; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: #89939e; font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 780px) {
+      .hero { min-height: auto; }
+      .hero-inner { padding: 65px 0 78px; }
+      .services, .benefits { grid-template-columns: 1fr; }
+      .service { display: grid; grid-template-columns: 38% 1fr; }
+      .service img { height: 100%; min-height: 180px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px, 1100px); }
+      section { padding: 60px 0; }
+      .service { display: block; }
+      .service img { height: 205px; }
+      .field-row { grid-template-columns: 1fr; }
+      .contact-card { padding: 18px; }
+      .logo { width: min(280px, 85%); }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <img class="logo" src="oakland-epoxy-logo.png" alt="Oakland Epoxy Co. logo">
+      <div class="eyebrow">Concrete coatings · Oakland County, Michigan</div>
+      <h1>Floors built tough.<br><span>Finishes that stand out.</span></h1>
+      <p>Give your garage, basement, or workspace a clean, durable finish with professionally applied epoxy and concrete floor coatings.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Request a Free Estimate</a>
+        <a class="btn secondary" href="#services">Explore Services</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What we do</div>
+          <h2>A better finish for your space.</h2>
+          <p>From home garages to hardworking commercial spaces, choose a coating that balances appearance, performance, and easy maintenance.</p>
+        </div>
+        <div class="services">
+          <article class="service">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="Clean modern garage and workshop">
+            <div class="service-content"><h3>Garage Floor Coatings</h3><p>Upgrade your garage with a polished, easy-to-clean surface made for everyday traffic, spills, and projects.</p></div>
+          </article>
+          <article class="service">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Modern home interior with clean flooring">
+            <div class="service-content"><h3>Basements & Home Spaces</h3><p>Refresh basement and utility areas with a seamless look that helps protect concrete and simplify cleanup.</p></div>
+          </article>
+          <article class="service">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80" alt="Professional commercial workspace">
+            <div class="service-content"><h3>Commercial Floors</h3><p>Practical coating options for shops, workspaces, and other areas that need a tough, professional finish.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Why Oakland Epoxy Co.</div>
+          <h2>Good prep. Clean work. A finish you'll love.</h2>
+          <p>The details matter. We focus on proper surface preparation and careful application for results that look great and work hard.</p>
+        </div>
+        <div class="benefits">
+          <div class="benefit"><div class="benefit-mark">01 /</div><h3>Made for real life</h3><p>Coating options designed to help resist everyday wear, dirt, and spills.</p></div>
+          <div class="benefit"><div class="benefit-mark">02 /</div><h3>Your space, your style</h3><p>Choose a look that suits your garage, home, or business.</p></div>
+          <div class="benefit"><div class="benefit-mark">03 /</div><h3>Clear communication</h3><p>Tell us about your project and get the conversation started with a quote request.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow">Let's talk about your floor</div>
+          <h2>Request your free estimate.</h2>
+          <p>Share a few details about your project and we'll be in touch. Whether you're planning a garage refresh or a commercial coating, we'd be happy to hear about it.</p>
+          <p><strong style="color:#fff">Oakland Epoxy Co.</strong><br>Serving Oakland County and surrounding Michigan communities.</p>
+        </div>
+        <div class="contact-card">
+          <!-- Replace GOOGLE_FORM_ACTION_URL with your Google Form's formResponse URL.
+               Add matching entry IDs to each input's name attribute for Google Forms. -->
+          <form id="quote-form" action="GOOGLE_FORM_ACTION_URL" method="POST" target="_blank">
+            <div class="field-row">
+              <div><label for="name">Name *</label><input id="name" name="entry.NAME_ID" autocomplete="name" required placeholder="Your name"></div>
+              <div><label for="email">Email *</label><input id="email" name="entry.EMAIL_ID" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+            </div>
+            <div class="field-row">
+              <div><label for="phone">Phone</label><input id="phone" name="entry.PHONE_ID" type="tel" autocomplete="tel" placeholder="(555) 555-5555"></div>
+              <div><label for="project">Project type</label>
+                <select id="project" name="entry.PROJECT_ID">
+                  <option value="">Choose one</option>
+                  <option>Garage</option><option>Basement</option><option>Commercial</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div><label for="details">Tell us about your project *</label><textarea id="details" name="entry.MESSAGE_ID" required placeholder="Approximate size, location, preferred finish, or anything else we should know..."></textarea></div>
+            <button class="btn primary" type="submit" style="width:100%;cursor:pointer;font:inherit;font-weight:800">Send Estimate Request</button>
+            <p class="form-note">Form setup note: connect your Google Form before publishing. See instructions in the README file.</p>
+            <p id="form-status" class="form-status" role="status">Your form is ready to submit. Connect the Google Form URL and field IDs before going live.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Oakland Epoxy Co. All rights reserved.</span>
+      <span>Built for durability. Finished with care.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Prevent accidental submission until the Google Form URL is configured.
+    const quoteForm = document.getElementById("quote-form");
+    quoteForm.addEventListener("submit", function (event) {
+      if (quoteForm.action.includes("GOOGLE_FORM_ACTION_URL") || quoteForm.action === window.location.href) {
+        event.preventDefault();
+        const status = document.getElementById("form-status");
+        status.style.display = "block";
+        status.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  </script>
+</body>
+</html>
